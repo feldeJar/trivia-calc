@@ -3,25 +3,25 @@
 
 <html>
     <h1>
-<div class="topCans">
+<div class="topA">
     <p>Team 2<br />
     </p>
 </div>
 <div class="topCans" >
-    <p>Question </p>
+    <p>Question</p>
 </div>
-<div class="topCans">
+<div class="topA">
     <p>Team 2<br />
     </p>
 </div> 
 <div class="topCans" >
     <p id="demo"></p>
 </div>
-<div class="topCans">
+<div class="topC">
     <p>18 </p>
 </div>
 <div class="topCans" >
-    <p>120</p>
+    <p id="demo"></p>
 </div> 
 <script>
     function AScore(divObj) {
@@ -80,17 +80,16 @@
 </div>
 <script>
 function runner(divObj){
-    getColor();
-    incrementValue(1);
+    score();
     EnterFunction(divObj);}
 </script>
 <script type="text/javascript">
-    function getColor() {
+function score() {
         var x = document.getElementsByClassName('midCans');
             for (var i = 0; i < x.length; i++) {
                 //alert(x[i].style.backgroundColor);
                 if(x[i].style.backgroundColor == "green"){
-                    incrementValue(5);}
+                    incrementValue(10);}
                 if(x[i].style.backgroundColor == "red"){
                     decrementValue(5);}
             }    
@@ -113,7 +112,7 @@ function decrementValue(x){
     document.getElementById('demo').value = value;
     document.getElementById('demo').innerHTML = value; }     
 }
-function EnterFunction(divObj) {      
+function EnterFunction() {      
     var x = document.getElementsByClassName('midCans');
         for (var i = 0; i < x.length; i++) {
             x[i].setAttribute("style", "background-color: blue;");
