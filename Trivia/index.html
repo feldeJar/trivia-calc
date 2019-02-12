@@ -4,24 +4,24 @@
 <html>
     <h1>
 <div class="topA">
-    <p>Team 2<br />
+    <p>Team A<br />
     </p>
 </div>
 <div class="topCans" >
     <p>Question</p>
 </div>
 <div class="topA">
-    <p>Team 2<br />
+    <p>Team B<br />
     </p>
 </div> 
 <div class="topCans" >
-    <p id="demo"></p>
+    <p id="scoreA">A</p>
 </div>
 <div class="topC">
-    <p>18 </p>
+    <p id="Question">0</p>
 </div>
 <div class="topCans" >
-    <p id="demo"></p>
+    <p id="scoreB">B</p>
 </div> 
 <script>
     function AScore(divObj) {
@@ -30,22 +30,22 @@
 }</script>      
    </h1>   
     <h2>    
-<div class="midCans" >
-    <p>Team 1</p>
-        <div class="midCans" onclick="tossFunction(this)">
+<div class="midA" >
+    <p>Team AAAA</p>
+        <div class="midA" onclick="tossFunction(this)">
             <p>Toss-up</p>
         </div>
-        <div class="midCans" onclick="negFunction(this)">
+        <div class="midA" onclick="negFunction(this)">
             <p>Neg 5</p>
         </div>
 </div>
-<div class="midCans" >
-    <p>Team 1</p>
-    <div class="midCans" onclick="tossFunction(this)">
+<div class="midB" >
+    <p>Team BBBBBb</p>
+    <div class="midB" onclick="tossFunction(this)">
         <p>Toss-up</p>
     </div>
-    <div class="midCans" onclick="negFunction(this)">
-        <p>Neg 5</p>
+    <div class="midB" onclick="negFunction(this)">
+        <p>Neg 5B</p>
     </div>
 </div>
 <script>
@@ -81,46 +81,80 @@
 <script>
 function runner(divObj){
     score();
-    EnterFunction(divObj);}
+    restColor(divObj);}
 </script>
 <script type="text/javascript">
 function score() {
-        var x = document.getElementsByClassName('midCans');
+        var x = document.getElementsByClassName('midA');
             for (var i = 0; i < x.length; i++) {
                 //alert(x[i].style.backgroundColor);
                 if(x[i].style.backgroundColor == "green"){
                     incrementValue(10);}
                 if(x[i].style.backgroundColor == "red"){
                     decrementValue(5);}
-            }    
+            } 
+        var x = document.getElementsByClassName('midB');
+        for (var i = 0; i < x.length; i++) {
+                //alert(x[i].style.backgroundColor);
+                if(x[i].style.backgroundColor == "green"){
+                    incrementValueB(10);}
+                if(x[i].style.backgroundColor == "red"){
+                    decrementValueB(5);}
+            } 
     }
 </script>                
 <script>
-function incrementValue(x){
+function incrementValueB(x){
     for (var i = 0; i < x; i++) {
-         var value = parseInt(document.getElementById('demo').value, 10);
+         var value = parseInt(document.getElementById('scoreB').value, 10);
              value = isNaN(value) ? 0 : value;
              value++;
-        document.getElementById('demo').value = value;
-        document.getElementById('demo').innerHTML = value;}
+        document.getElementById('scoreB').value = value;
+        document.getElementById('scoreB').innerHTML = value;}
+}
+function decrementValueB(x){
+    for (var i = 0; i < x; i++) {
+        var value = parseInt(document.getElementById('scoreB').value, 10);
+        value = isNaN(value) ? 0 : value;
+        value--;
+    document.getElementById('scoreB').value = value;
+    document.getElementById('scoreB').innerHTML = value; }     
+}
+function incrementValue(x){
+    for (var i = 0; i < x; i++) {
+         var value = parseInt(document.getElementById('scoreA').value, 10);
+             value = isNaN(value) ? 0 : value;
+             value++;
+        document.getElementById('scoreA').value = value;
+        document.getElementById('scoreA').innerHTML = value;}
 }
 function decrementValue(x){
     for (var i = 0; i < x; i++) {
-        var value = parseInt(document.getElementById('demo').value, 10);
+        var value = parseInt(document.getElementById('scoreA').value, 10);
         value = isNaN(value) ? 0 : value;
         value--;
-    document.getElementById('demo').value = value;
-    document.getElementById('demo').innerHTML = value; }     
+    document.getElementById('scoreA').value = value;
+    document.getElementById('scoreA').innerHTML = value; }     
 }
-function EnterFunction() {      
-    var x = document.getElementsByClassName('midCans');
+function restColor() {      
+    var x = document.getElementsByClassName('midA');
         for (var i = 0; i < x.length; i++) {
             x[i].setAttribute("style", "background-color: blue;");
-        }   
+        }
+    var x = document.getElementsByClassName('midB');
+        for (var i = 0; i < x.length; i++) {
+            x[i].setAttribute("style", "background-color: blue;");
+        }
     var j = document.getElementsByClassName('botCans');
         for (var i = 0; i < x.length; i++) {
             j[i].setAttribute("style", "background-color: grey;");
-        }    
+            
+        } 
+    var value = parseInt(document.getElementById('Question').value, 10);
+             value = isNaN(value) ? 0 : value;
+             value++;
+        document.getElementById('Question').value = value;
+        document.getElementById('Question').innerHTML = value;
 }      
 </script>         
     </h4>
