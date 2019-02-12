@@ -16,7 +16,13 @@
       </p>
 </div> 
          <div class="topCans" >
-  <p>450</p>
+             
+             
+  <p id="demo"></p>
+
+
+             
+             
   </div>
   <div class="topCans">
   <p>18 </p>
@@ -24,6 +30,14 @@
   <div class="topCans" >
   <p>120</p>
 </div> 
+         <script>
+function AScore(divObj) {
+    var x = 0
+    divObj.innerHTML = x;
+
+}</script>
+                 
+         
         
    </h1> 
      
@@ -90,27 +104,84 @@ function BonusFunction(divObj) {
          </h3>
     
          <h4>
-    <div class="enter" onclick="EnterFunction(this)">
+    <div class="enter" onclick="runner(this)">
         
         <p>Enter</p>
              
              </div>
+             <script>
+             function runner(divObj){
+                getColor();
+                 incrementValue(1);
+               EnterFunction(divObj);
+                 
+                
+             }
+             </script>
+             <script type="text/javascript">
+function getColor() {
+var x = document.getElementsByClassName('midCans');
+for (var i = 0; i < x.length; i++) {
+  //alert(x[i].style.backgroundColor);
+    if(x[i].style.backgroundColor == "green"){
+                         incrementValue(5);
+
+    }
+    if(x[i].style.backgroundColor == "red"){
+                       decrementValue(5);
+
+    }
+} 
+
+}
+</script>
+       
+             
+             
+             
     <script>
-function EnterFunction(divObj) {
-    divObj.setAttribute("style", "background-color: green;");
+        function incrementValue(x)
+{
     
+    for (var i = 0; i < x; i++) {
     
+    var value = parseInt(document.getElementById('demo').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('demo').value = value;
+    document.getElementById('demo').innerHTML = value;
+    }
+        
+}
+        function decrementValue(x)
+{
+    
+    for (var i = 0; i < x; i++) {
+    
+    var value = parseInt(document.getElementById('demo').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('demo').value = value;
+    document.getElementById('demo').innerHTML = value;
+    }
+        
+}
+function EnterFunction(divObj) {      
    var x = document.getElementsByClassName('midCans');
 for (var i = 0; i < x.length; i++) {
-  x[i].setAttribute("style", "background-color: blue;");
-}
     
+  x[i].setAttribute("style", "background-color: blue;");
+}   
     var j = document.getElementsByClassName('botCans');
 for (var i = 0; i < x.length; i++) {
   j[i].setAttribute("style", "background-color: grey;");
 }
-
-}</script> 
+    
+}      
+             </script> 
+             
+             
+             
     </h4>
      
       
