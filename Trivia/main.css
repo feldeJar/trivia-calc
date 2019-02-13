@@ -1,10 +1,19 @@
 html {
-    background: lightblue;
-    
-
+  background-image: linear-gradient(to bottom right, grey, black);   
+}
+body{
+   padding: 0px;
+   margin: 0px;
+ }
+#gradient
+{
+  width: 100%;
+  height: 800px;
+  padding: 0px;
+  margin: 0px;
 }
 head{
-    background: blue;
+    background: black;
 }
 h1{
     height: 250px;
@@ -12,7 +21,6 @@ h1{
 }
 h2{
     height: 150px;
-    background-color: purple;
 }
 h3{
     height: 100px;
@@ -27,8 +35,6 @@ h4{
 .topCans,.topA,.topB,.topC {
     padding: 0;
 text-align: center;
-    border-style: solid;
-    border-color: white;
   float: left;
     height: 50%;
     min-width: 32%;
@@ -36,36 +42,39 @@ text-align: center;
 }
 
 .midCans,.midA,.midB{
-    background-color: blue;
+    background-color: grey;
     margin-left: 5%;
-     border-style: solid;
-    border-color: white;
+    border-style: solid;
+    border-color: black;
     text-align: center;
-  float: left;
+    float: left;
     min-height: 100%;
-  width: 40%;
+    width: 40%;
 }
 .botCans {
+    text-align: center;
  background-color: grey;
  border-style: solid;
-    text-align: center;
-    border-color: white;
+    border-color: black;
     float: left;
     height: 70%;
     min-width: 32.1%;
 }
 .bonus {
     background-color: grey;
-text-align: center;
-    height: 30%;
+    border-color: black;
+    text-align: center;
+    font-size: 25px;
+    height: 40%;
 
   min-width: 98%;
     max-width: 90%;
 }
 .enter {
+    background-color: grey;
 text-align: center;
     border-style: solid;
-    border-color: white;
+    border-color: black;
     height: 100%;
 
   min-width: 100%;

@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="main.css">
 
 <html>
+    <div id="gradient" />
+    
     <h1>
 <div class="topA">
     <p>Team A<br />
@@ -31,7 +33,7 @@
    </h1>   
     <h2>    
 <div class="midA" >
-    <p>Team AAAA</p>
+    <p>Team A</p>
         <div class="midA" onclick="tossFunction(this)">
             <p>Toss-up</p>
         </div>
@@ -40,39 +42,53 @@
         </div>
 </div>
 <div class="midB" >
-    <p>Team BBBBBb</p>
+    <p>Team B</p>
     <div class="midB" onclick="tossFunction(this)">
         <p>Toss-up</p>
     </div>
     <div class="midB" onclick="negFunction(this)">
-        <p>Neg 5B</p>
+        <p>-5</p>
     </div>
 </div>
 <script>
-    function negFunction(divObj) {
+function negFunction(divObj) {
         divObj.setAttribute("style", "background-color: red;");
 }
-    function tossFunction(divObj) {
+function tossFunction(divObj) {
+    if(questionLogic() == false){
+       // alert(temp);
         divObj.setAttribute("style", "background-color: green;");
-}</script>   
+    }
+}
+function questionLogic(){
+        var x = document.getElementsByClassName('midA');
+            for (var i = 0; i < x.length; i++) {
+                //alert(x[i].style.backgroundColor);
+                if(x[i].style.backgroundColor == "green"){
+                    return true;}
+                }
+        var x = document.getElementsByClassName('midB');
+            for (var i = 0; i < x.length; i++) {
+                //alert(x[i].style.backgroundColor);
+                if(x[i].style.backgroundColor == "green"){
+                    return true;}
+                }
+return false}
+</script>   
       </h2> 
     <h3>
 <div class="bonus" >
     <p>Bonus</p>
 </div>
-<div class="botCans" onclick="BonusFunction(this)">
+<div class="botCans" onclick="bonusFunction(this)">
     <p>1</p>
 </div>
-<div class="botCans" onclick="BonusFunction(this)">
+<div class="botCans" onclick="bonusFunction(this)">
     <p>2 </p>
 </div>
-<div class="botCans" onclick="BonusFunction(this)">
+<div class="botCans" onclick="bonusFunction(this)">
     <p>3</p>
 </div>   
-<script>
-    function BonusFunction(divObj) {
-        divObj.setAttribute("style", "background-color: green;");
-}</script> 
     </h3>
     <h4>
 <div class="enter" onclick="runner(this)">
@@ -89,21 +105,36 @@ function score() {
             for (var i = 0; i < x.length; i++) {
                 //alert(x[i].style.backgroundColor);
                 if(x[i].style.backgroundColor == "green"){
-                    incrementValue(10);}
+                    incrementValue(10);
+                    incrementValue(bonusCount()*10);}
                 if(x[i].style.backgroundColor == "red"){
                     decrementValue(5);}
             } 
-        var x = document.getElementsByClassName('midB');
+        var y = document.getElementsByClassName('midB');
         for (var i = 0; i < x.length; i++) {
                 //alert(x[i].style.backgroundColor);
-                if(x[i].style.backgroundColor == "green"){
-                    incrementValueB(10);}
-                if(x[i].style.backgroundColor == "red"){
+                if(y[i].style.backgroundColor == "green"){
+                    incrementValueB(10);
+                    incrementValueB(bonusCount()*10);}
+                if(y[i].style.backgroundColor == "red"){
                     decrementValueB(5);}
             } 
     }
+function bonusCount(){
+    count = 0;
+   var x = document.getElementsByClassName('botCans');
+            for (var i = 0; i < x.length; i++) {
+                //alert(x[i].style.backgroundColor);
+                if(x[i].style.backgroundColor == "green"){
+                    count++;
+                }  
+            }
+    return count;
+}
 </script>                
 <script>
+function bonusFunction(divObj) {
+        divObj.setAttribute("style", "background-color: green;");}
 function incrementValueB(x){
     for (var i = 0; i < x; i++) {
          var value = parseInt(document.getElementById('scoreB').value, 10);
@@ -139,11 +170,11 @@ function decrementValue(x){
 function restColor() {      
     var x = document.getElementsByClassName('midA');
         for (var i = 0; i < x.length; i++) {
-            x[i].setAttribute("style", "background-color: blue;");
+            x[i].setAttribute("style", "background-color: grey;");
         }
     var x = document.getElementsByClassName('midB');
         for (var i = 0; i < x.length; i++) {
-            x[i].setAttribute("style", "background-color: blue;");
+            x[i].setAttribute("style", "background-color: grey;");
         }
     var j = document.getElementsByClassName('botCans');
         for (var i = 0; i < x.length; i++) {
@@ -155,7 +186,7 @@ function restColor() {
              value++;
         document.getElementById('Question').value = value;
         document.getElementById('Question').innerHTML = value;
-}      
+}
 </script>         
     </h4>
 </html>
